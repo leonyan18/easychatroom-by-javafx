@@ -39,7 +39,7 @@ public class Serverthread extends Thread{
 				else {
 					if(dao.insert(str1, str2)) {
 						out.writeInt(1);
-						System.out.println("yes");
+						System.out.println("yes zhuce");
 					}
 					else {
 						out.writeInt(0);

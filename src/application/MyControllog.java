@@ -1,6 +1,7 @@
 package application;
 
 import java.awt.TextArea;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -18,10 +19,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Bloom;
 import javafx.stage.Stage;
-import jdk.nashorn.internal.runtime.Scope;
+
 
 public class MyControllog implements Initializable{
 	private Socket socket=null;
@@ -32,6 +35,8 @@ public class MyControllog implements Initializable{
 	private PasswordField pass;
 	@FXML
 	private Button login;
+	@FXML
+	private Label wropa,reacc,yes;
 	public void tomain() throws IOException {
 		DataInputStream in=new DataInputStream(socket.getInputStream());
 		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
@@ -47,7 +52,9 @@ public class MyControllog implements Initializable{
 			main.start(stage);
 		}
 		else {
-			System.out.println("wrong");
+			yes.setOpacity(0);
+			wropa.setOpacity(1.0);
+			reacc.setOpacity(0);
 		}
 	}
 	public void regist() throws IOException {
@@ -59,10 +66,14 @@ public class MyControllog implements Initializable{
 		out.writeUTF(pass.getText());
 		System.out.println(pass.getText());
 		if(in.readInt()==1) {
-			
+			yes.setOpacity(1.0);
+			wropa.setOpacity(0);
+			reacc.setOpacity(0);
 		}
 		else {
-			System.out.println("wrong");
+			yes.setOpacity(0);
+			wropa.setOpacity(0);
+			reacc.setOpacity(1.0);
 		}
 	}
 	
