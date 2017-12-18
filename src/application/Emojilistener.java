@@ -46,7 +46,7 @@ public class Emojilistener implements Runnable{
 						message=null;
 						message=new String(packet.getData(), 0, packet.getLength());
 						System.out.println(message);
-						String imgloc=new String("application/"+message+".jpg");
+						String imgloc=new String("resource/"+message+".jpg");
 						i++;
 						Date now = new Date();
 						DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");

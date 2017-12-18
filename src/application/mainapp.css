@@ -1,7 +1,7 @@
 
 
 .root {
-     -fx-background-image: url("gray.jpg");
+     -fx-background-image: url("../resource/gray.jpg");
 }
 
 .text-area {
@@ -23,7 +23,7 @@
 	-fx-opacity:1.0;
 }
 .pane1 {
-   	-fx-background-image: url("iu.jpg");
+   	-fx-background-image: url("../resource/iu.jpg");
    	
 }
 .button {

@@ -48,7 +48,7 @@ public class Emojicontrol {
 		}
 	}
 	private void sendimg(Pane pane,String pic) {
-		Image image =new Image("application/"+pic+".jpg");
+		Image image =new Image("resource/"+pic+".jpg");
 		ImageView imageView=new ImageView(image);
 		imageView.resize(20, 20);
 		Platform.runLater(new Runnable() {
