@@ -19,6 +19,7 @@ import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.application.Application;
@@ -38,6 +39,7 @@ public class Main extends Application {
             primaryStage.setScene(new Scene(root));
             primaryStage.initStyle(StageStyle.TRANSPARENT);
             MyControl.stage=primaryStage;
+            primaryStage.getIcons().add(new Image("resource/batman.jpg"));  
             root.setOnMousePressed((MouseEvent event) -> {
 			    event.consume();
 				xOffset = event.getSceneX();

@@ -1,23 +1,20 @@
 package application;
-	
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
-import junit.framework.Test;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
-
-public class login extends Application {
+public class Recordmain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/application/main.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/application/chatrecord.fxml"));
 			Scene scene = new Scene(root);
 			MyControllog.stage=primaryStage;
 			primaryStage.setScene(scene);
-			primaryStage.getIcons().add(new Image("resource/batman.jpg"));  
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

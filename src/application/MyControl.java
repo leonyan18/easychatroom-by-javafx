@@ -122,6 +122,11 @@ public class MyControl  implements	 Initializable {
 		Thread thread3=new Thread(send);
 		thread3.start();
 	}
+	public void Record() {
+		Recordmain recordmain=new Recordmain();
+		Stage estage=new Stage();
+		recordmain.start(estage);
+	}
 	public void listening() {	
 		Message.sendmessage("127.0.0.1",959,"121");
 	}

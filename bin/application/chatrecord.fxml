@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="728.0" prefWidth="1046.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Recordcontrol">
+   <children>
+      <ScrollPane layoutX="6.0" layoutY="11.0" prefHeight="684.0" prefWidth="1026.0">
+         <content>
+            <TextArea fx:id="text1" editable="false" prefHeight="679.0" prefWidth="1022.0">
+               <font>
+                  <Font size="26.0" />
+               </font></TextArea>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

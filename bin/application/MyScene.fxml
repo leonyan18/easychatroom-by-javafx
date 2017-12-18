@@ -12,17 +12,18 @@
    <children>
       <Button fx:id="myButton" layoutX="606.0" layoutY="721.0" mnemonicParsing="false" onAction="#showDateTime" prefHeight="23.0" prefWidth="120.0" text="发送" />
       <TextArea fx:id="text2" layoutX="15.0" layoutY="488.0" opacity="0.5" prefHeight="233.0" prefWidth="710.0" styleClass="text2" />
-      <Pane layoutX="726.0" layoutY="34.0" prefHeight="121.0" prefWidth="120.0" styleClass="pane1" stylesheets="@mainapp.css" />
+      <Pane layoutX="739.0" layoutY="33.0" prefHeight="121.0" prefWidth="120.0" styleClass="pane1" stylesheets="@mainapp.css" />
       <Button fx:id="button1" layoutX="847.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="23.0" prefWidth="24.0" styleClass="buttonclose" text="X" textFill="#0dc4f2" />     
       <Button fx:id="min" layoutX="823.0" layoutY="3.0" mnemonicParsing="false" onAction="#minwind" prefWidth="24.0" text="-" />
       <Button layoutX="18.0" layoutY="464.0" mnemonicParsing="false" onAction="#filesend" text="发送文件" />
-      <Button layoutX="208.0" layoutY="464.0" mnemonicParsing="false" onAction="#sendemo" prefHeight="23.0" prefWidth="79.0" text="表情" />
+      <Button layoutX="110.0" layoutY="464.0" mnemonicParsing="false" onAction="#sendemo" prefHeight="23.0" prefWidth="79.0" text="表情" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="202.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" />
-      <ScrollPane layoutX="18.0" layoutY="15.0" opacity="0.5" prefHeight="440.0" prefWidth="699.0" styleClass="pane2">
+      <ScrollPane layoutX="15.0" layoutY="15.0" opacity="0.5" prefHeight="440.0" prefWidth="710.0" styleClass="pane2">
          <content>
-            <FlowPane fx:id="pane" prefHeight="1486.0" prefWidth="693.0" />
+            <FlowPane fx:id="pane" prefHeight="435.0" prefWidth="702.0" />
          </content>
       </ScrollPane>
+      <Button layoutX="224.0" layoutY="464.0" mnemonicParsing="false" onAction="#Record" prefHeight="23.0" prefWidth="79.0" text="聊天记录" />
    </children>
    <stylesheets>
       <URL value="@mainapp.css" />
