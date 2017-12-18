@@ -35,7 +35,7 @@ root {
 }
 
 .root {
-     -fx-background-image: url("123123123.jpg");
+     -fx-background-image: url("sanyuan.jpg");
 }
 
 .text-area {
@@ -59,7 +59,10 @@ root {
   -fx-font-weight: bold;
   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );  
 }
-
+.buttonclose:hover
+{ 
+	-fx-background-color:red;
+}
 .button {
     -fx-text-fill: white;
     -fx-font-family: "Arial Narrow";

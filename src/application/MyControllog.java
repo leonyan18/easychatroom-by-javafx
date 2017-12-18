@@ -50,6 +50,22 @@ public class MyControllog implements Initializable{
 			System.out.println("wrong");
 		}
 	}
+	public void regist() throws IOException {
+		DataInputStream in=new DataInputStream(socket.getInputStream());
+		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
+		out.writeInt(0);
+		out.writeUTF(user.getText());
+		System.out.println(pass.getText());
+		out.writeUTF(pass.getText());
+		System.out.println(pass.getText());
+		if(in.readInt()==1) {
+			
+		}
+		else {
+			System.out.println("wrong");
+		}
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO 自动生成的方法存根
