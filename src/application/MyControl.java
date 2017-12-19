@@ -69,7 +69,7 @@ public class MyControl  implements	 Initializable {
 		Date now = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
 		String dateTimeString = df.format(now);	
-		Message.sendmessage("127.0.0.1", 858, name+" "+text2.getText().trim()+"\n");
+		Message.sendmessage(data.you, 656, name+" "+text2.getText().trim()+"\n");
 		Save.savechat("\t\t\t\t\t"+ dateTimeString + "\r\n" + text2.getText()  + "\r\n");
 		// Show in VIEW
 		if (!text2.getText().equals("")) {
@@ -126,9 +126,6 @@ public class MyControl  implements	 Initializable {
 		Recordmain recordmain=new Recordmain();
 		Stage estage=new Stage();
 		recordmain.start(estage);
-	}
-	public void listening() {	
-		Message.sendmessage("127.0.0.1",959,"121");
 	}
 	public void sendemo() throws Exception {
 		Emoji mEmoji=new Emoji();

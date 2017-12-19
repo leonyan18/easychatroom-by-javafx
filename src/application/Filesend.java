@@ -31,11 +31,12 @@ public class Filesend implements Runnable{
 		int length = 0;
 		try {			
 			try {
-	            Message.sendmessage("127.0.0.1",858,"/t/t/t对方已向你发送了文件 请在本地D:\\test2查收");
+	            Message.sendmessage(data.you,656,"/t/t/t对方已向你发送了文件 请在本地D:\\test2查收");
 	            
 	    		socket=new Socket();
 	            try {
-	    			socket.connect(new InetSocketAddress("", 33456),10 * 1000);
+	            	InetAddress address=InetAddress.getByName(data.you);
+	    			socket.connect(new InetSocketAddress(address, 33455));
 	    		} catch (IOException e) {
 	    			// TODO 自动生成的 catch 块
 	    			e.printStackTrace();

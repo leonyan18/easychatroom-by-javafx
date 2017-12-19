@@ -1,3 +1,26 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
 .root {
+     -fx-background-image: url("../resource/background.jpg");
 }
+
+.wrong {
+    -fx-border-color:#ff0000;
+    -fx-border-width:3px;
+}
+.normal {
+    -fx-border-color:#6699FF;
+    -fx-border-width:3px;
+}
+.button {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#6699FF, #a3a1a1);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,1) , 5, 0.0 , 0 , 1 );
+}
+.button:hover{
+	-fx-background-color: linear-gradient(#a3a1a1, #a3a1a1);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,1) , 5, 0.0 , 0 , 1 );
+}
+

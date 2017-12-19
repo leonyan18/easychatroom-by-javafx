@@ -28,21 +28,21 @@ public class Emojicontrol {
 		if (event.getSource().toString().equals("ImageView[id=666, styleClass=image-view]")) {			
 			settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
 			sendimg(pane, "666");
-			Message.sendmessage("127.0.0.1", 33457, "666");
+			Message.sendmessage(data.you, 33454, "666");
 			settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
 			System.out.println(666);
 		}
 		if (event.getSource().toString().equals("ImageView[id=iu, styleClass=image-view]")) {
 			settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
 			sendimg(pane, "iu");
-			Message.sendmessage("127.0.0.1", 33457, "iu");
+			Message.sendmessage(data.you, 33454, "iu");
 			settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
 			System.out.println("iu");
 		}
 		if (event.getSource().toString().equals("ImageView[id=6666, styleClass=image-view]")) {
 			settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
 			sendimg(pane, "6666");
-			Message.sendmessage("127.0.0.1", 33457, "6666");
+			Message.sendmessage(data.you, 33454, "6666");
 			settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
 			System.out.println(6666);
 		}

@@ -17,7 +17,7 @@ public class login extends Application {
 			Scene scene = new Scene(root);
 			MyControllog.stage=primaryStage;
 			primaryStage.setScene(scene);
-			primaryStage.getIcons().add(new Image("resource/batman.jpg"));  
+			primaryStage.getIcons().add(new Image("resource/gray1.jpg"));  
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
