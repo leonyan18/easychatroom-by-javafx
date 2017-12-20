@@ -233,7 +233,8 @@ public class MyControl  implements	 Initializable {
 		ImageView imageView=new ImageView(image);
 		imageView.resize(20, 20);
 		imageView.setImage(image);
-		pane.getChildren().add(imageView);		
+		pane.getChildren().add(imageView);	
+		settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
 		Imagesend imagesend=new Imagesend();
 		imagesend.setting(file);
 		Save.savechat("\t\t\t\t\t"+dateTimeString+"\n me :"+file.getName()+"\r\n");

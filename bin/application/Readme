@@ -4,4 +4,27 @@
 	33455接收文件
 	33454接收表情
 	33456接收图片
-	"D:\\test1"
+	接收的文件存储位置"D:\\test1"
+名称	功能	备注
+config	设置界面	界面类
+ConfigControl	设置界面的事件触发	设置对方ip和服务器ip	事件触发类
+Data	保存对方ip和服务器ip	保存数据类
+Emoji	表情界面	界面类
+Emojicontrol	表情界面的事件触发
+Udp 	发送表情名来代替发送图片	事件触发类
+Emojilistener	接收表情	Listener
+FileListener	文件接收	Listener
+Filesend	文件发送	Socket发送
+Message		消息发送	Udp发送
+Messagelistener		接收消息	Listener
+Headcontrol		头像事件触发更换头像	事件触发类
+Headimg	更换头像的界面	界面类
+Imagelistenr	接收图片	Listenr
+Imagesend	发送图片文件	Socket发送
+login	登录界面	界面类
+MyControllog	登录界面事件触发类	事件触发类
+Main	主窗体界面	界面类
+MyControl	主窗体事件触发和交互	事件触发类
+Recordmain	聊天记录窗口界面	界面类
+Recordcontrol	聊天记录窗口界面事件触发	事件触发类
+Save	保存聊天记录到本地的类	之所以把图片和表情分两种方式是应为消除不断发送相同图片所带来的内存增加，而且效率高。
