@@ -44,6 +44,10 @@ public class MyControllog implements Initializable{
 	private Button login;
 	@FXML
 	private Label wropa,reacc,yes;
+	final double x1=156.0;
+	final double y1=172.0;
+	final double x2=156.0;
+	final double y2=238.0;
 	public void tomain() throws IOException {
 		DataInputStream in=new DataInputStream(socket.getInputStream());
 		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
@@ -59,27 +63,27 @@ public class MyControllog implements Initializable{
 			main.start(stage);
 		}
 		else {
-			double x=pass.getLayoutX();
-			double y=pass.getLayoutY();
+			pass.getStyleClass().clear();
+			user.getStyleClass().clear();
 			pass.getStyleClass().add("wrong");
 			user.getStyleClass().add("normal");
 			Timeline timeline=new Timeline();
 			timeline.getKeyFrames().addAll(  
-	                new KeyFrame(Duration.ZERO, // set start position at 0  
-	                    new KeyValue(pass.layoutXProperty(), x),  
-	                    new KeyValue(pass.layoutYProperty(), y)  
+	                new KeyFrame(Duration.ZERO,   
+	                    new KeyValue(pass.layoutXProperty(), x2),  
+	                    new KeyValue(pass.layoutYProperty(), y2)  
 	                ),  
-	                new KeyFrame(new Duration(40), // set end position at 40s  
-	                    new KeyValue(pass.layoutXProperty(), x+5),  
-	                    new KeyValue(pass.layoutYProperty(), y+5) 
+	                new KeyFrame(new Duration(40), 
+	                    new KeyValue(pass.layoutXProperty(), x2+5),  
+	                    new KeyValue(pass.layoutYProperty(), y2+5) 
 	                ) , 
-	                new KeyFrame(new Duration(80), // set end position at 40s  
-		                    new KeyValue(pass.layoutXProperty(), x-5),  
-		                    new KeyValue(pass.layoutYProperty(), y-5) 
+	                new KeyFrame(new Duration(80),  
+		                    new KeyValue(pass.layoutXProperty(), x2-5),  
+		                    new KeyValue(pass.layoutYProperty(), y2-5) 
 		            )  ,
-	                new KeyFrame(new Duration(120), // set end position at 40s  
-		                    new KeyValue(pass.layoutXProperty(), x),  
-		                    new KeyValue(pass.layoutYProperty(), y) 
+	                new KeyFrame(new Duration(120), 
+		                    new KeyValue(pass.layoutXProperty(), x2),  
+		                    new KeyValue(pass.layoutYProperty(), y2) 
 		            )  
 	            );  
 			timeline.play();
@@ -97,6 +101,8 @@ public class MyControllog implements Initializable{
 		out.writeUTF(pass.getText());
 		System.out.println(pass.getText());
 		if(in.readInt()==1) {
+			pass.getStyleClass().clear();
+			user.getStyleClass().clear();
 			pass.getStyleClass().add("normal");
 			user.getStyleClass().add("normal");
 			yes.setOpacity(1.0);
@@ -104,27 +110,27 @@ public class MyControllog implements Initializable{
 			reacc.setOpacity(0);
 		}
 		else {
-			double x=user.getLayoutX();
-			double y=user.getLayoutY();
+			pass.getStyleClass().clear();
+			user.getStyleClass().clear();
 			pass.getStyleClass().add("normal");
 			user.getStyleClass().add("wrong");
 			Timeline timeline=new Timeline();
 			timeline.getKeyFrames().addAll(  
-	                new KeyFrame(Duration.ZERO, // set start position at 0  
-	                    new KeyValue(user.layoutXProperty(), x),  
-	                    new KeyValue(user.layoutYProperty(), y)  
+	                new KeyFrame(Duration.ZERO,
+	                    new KeyValue(user.layoutXProperty(), x1),  
+	                    new KeyValue(user.layoutYProperty(), y1)  
 	                ),  
-	                new KeyFrame(new Duration(40), // set end position at 40s  
-	                    new KeyValue(user.layoutXProperty(), x+5),  
-	                    new KeyValue(user.layoutYProperty(), y+5) 
+	                new KeyFrame(new Duration(40), 
+	                    new KeyValue(user.layoutXProperty(), x1+5),  
+	                    new KeyValue(user.layoutYProperty(), y1+5) 
 	                ) , 
-	                new KeyFrame(new Duration(80), // set end position at 40s  
-		                    new KeyValue(user.layoutXProperty(), x-5),  
-		                    new KeyValue(user.layoutYProperty(), y-5) 
+	                new KeyFrame(new Duration(80), 
+		                    new KeyValue(user.layoutXProperty(), x1-5),  
+		                    new KeyValue(user.layoutYProperty(), y1-5) 
 		            )  ,
-	                new KeyFrame(new Duration(120), // set end position at 40s  
-		                    new KeyValue(user.layoutXProperty(), x),  
-		                    new KeyValue(user.layoutYProperty(), y) 
+	                new KeyFrame(new Duration(120),
+		                    new KeyValue(user.layoutXProperty(), x1),  
+		                    new KeyValue(user.layoutYProperty(), y1) 
 		            )  
 	            );  
 			timeline.play();
@@ -149,6 +155,7 @@ public class MyControllog implements Initializable{
 				e.printStackTrace();
 			}
 		}
+		
 		pass.getStyleClass().add("normal");
 		user.getStyleClass().add("normal");
 	}
