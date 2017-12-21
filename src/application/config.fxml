@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="296.0" prefWidth="472.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConfigControl">
+   <children>
+      <Label layoutX="23.0" layoutY="82.0" prefHeight="42.0" prefWidth="77.0" text="对方ip">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tex1" layoutX="117.0" layoutY="82.0" prefHeight="42.0" prefWidth="329.0" />
+      <Button layoutX="191.0" layoutY="204.0" mnemonicParsing="false" onAction="#saveconfig" prefHeight="42.0" prefWidth="91.0" text="保存设置" />
+   </children>
+</AnchorPane>

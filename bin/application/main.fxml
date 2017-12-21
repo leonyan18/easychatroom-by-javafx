@@ -55,5 +55,6 @@
             <Image url="@../resource/gray1.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="535.0" layoutY="3.0" mnemonicParsing="false" onAction="#config" text="设置" />
    </children>
 </AnchorPane>

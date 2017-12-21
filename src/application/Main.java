@@ -39,7 +39,7 @@ public class Main extends Application {
             primaryStage.setScene(new Scene(root));
             primaryStage.initStyle(StageStyle.TRANSPARENT);
             MyControl.stage=primaryStage;
-            primaryStage.getIcons().add(new Image("resource/batman.jpg"));  
+            primaryStage.getIcons().add(new Image("resource/gray1.jpg"));  
             root.setOnMousePressed((MouseEvent event) -> {
 			    event.consume();
 				xOffset = event.getSceneX();

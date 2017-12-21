@@ -22,10 +22,6 @@
 .text2:hover{
 	-fx-opacity:1.0;
 }
-.pane1 {
-   	-fx-background-image: url("../resource/iu.jpg");
-   	
-}
 .button {
     -fx-text-fill: white;
     -fx-font-family: "Arial Narrow";

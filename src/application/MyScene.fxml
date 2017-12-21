@@ -12,7 +12,6 @@
    <children>
       <Button fx:id="myButton" layoutX="606.0" layoutY="721.0" mnemonicParsing="false" onAction="#showDateTime" prefHeight="23.0" prefWidth="120.0" text="发送" />
       <TextArea fx:id="text2" layoutX="15.0" layoutY="488.0" opacity="0.5" prefHeight="233.0" prefWidth="710.0" styleClass="text2" />
-      <Pane layoutX="739.0" layoutY="33.0" prefHeight="121.0" prefWidth="120.0" styleClass="pane1" stylesheets="@mainapp.css" />
       <Button fx:id="button1" layoutX="847.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="23.0" prefWidth="24.0" styleClass="buttonclose" text="X" textFill="#0dc4f2" />     
       <Button fx:id="min" layoutX="823.0" layoutY="3.0" mnemonicParsing="false" onAction="#minwind" prefWidth="24.0" text="-" />
       <Button layoutX="18.0" layoutY="464.0" mnemonicParsing="false" onAction="#filesend" text="发送文件" />
@@ -24,6 +23,22 @@
          </content>
       </ScrollPane>
       <Button layoutX="224.0" layoutY="464.0" mnemonicParsing="false" onAction="#Record" prefHeight="23.0" prefWidth="79.0" text="聊天记录" />
+      <Label layoutX="752.0" layoutY="165.0" prefHeight="30.0" prefWidth="86.0" text="Your name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textname" layoutX="739.0" layoutY="203.0" prefHeight="30.0" prefWidth="120.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="779.0" layoutY="250.0" mnemonicParsing="false" onAction="#changename" text="修改" />
+      <ImageView fx:id="img" fitHeight="135.0" fitWidth="136.0" layoutX="731.0" layoutY="37.0" onMouseClicked="#imgreplace" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/iu.jpg" />
+         </image>
+      </ImageView>
    </children>
    <stylesheets>
       <URL value="@mainapp.css" />

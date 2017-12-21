@@ -53,10 +53,10 @@ public class MyControllog implements Initializable{
 		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
 		out.writeInt(1);
 		out.writeUTF(user.getText());
-		System.out.println(pass.getText());
 		out.writeUTF(pass.getText());
-		System.out.println(pass.getText());
 		if(in.readInt()==1) {
+			MyControl.name=in.readUTF();
+			MyControl.account=user.getText();
 			stage.close();
 			stage=new Stage();
 			Main main=new Main();
@@ -91,6 +91,11 @@ public class MyControllog implements Initializable{
 			wropa.setOpacity(1.0);
 			reacc.setOpacity(0);
 		}
+	}
+	public void config() throws Exception {
+		stage=new Stage();
+		Config config1=new Config();
+		config1.start(stage);
 	}
 	public void regist() throws IOException {
 		DataInputStream in=new DataInputStream(socket.getInputStream());

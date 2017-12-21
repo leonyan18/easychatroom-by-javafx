@@ -1,11 +1,14 @@
 package application;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.text.DateFormat;
@@ -26,6 +29,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -46,11 +50,16 @@ public class MyControl  implements	 Initializable {
 	private TextArea text1, text2;
 	@FXML
 	private FlowPane pane;
+	@FXML
+	private TextField textname;
+	@FXML
+	private ImageView img;
 	private double xOffset = 0;
     private double yOffset = 0;
     private Socket socket1;
-	String name;
-	int location1;
+	static String name="";
+	static String account="";
+	private Socket socket;
 	public void initialize(URL location, ResourceBundle resources) {
 		
 	       // TODO (don't really need to do anything here).
@@ -64,12 +73,26 @@ public class MyControl  implements	 Initializable {
 		emojilistener.setpane(pane);
 		Thread thread3=new Thread(emojilistener);
 		thread3.start();
+		textname.setText(name);
+		socket=new Socket();
+		if(!socket.isConnected()) {
+			InetAddress address;
+			try {
+				address = InetAddress.getByName("192.168.0.140");
+				InetSocketAddress socketAddress=new InetSocketAddress(address, 5555);
+				socket.connect(socketAddress);
+			} catch (IOException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		}
 	   }
 	public void showDateTime(ActionEvent event) {
 		Date now = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
 		String dateTimeString = df.format(now);	
-		Message.sendmessage(data.you, 656, name+" "+text2.getText().trim()+"\n");
+		Message.sendmessage(data.you, 656, "from "+name+":"+text2.getText().trim()+"\n");
+		System.out.println(name);
 		Save.savechat("\t\t\t\t\t"+ dateTimeString + "\r\n" + text2.getText()  + "\r\n");
 		// Show in VIEW
 		if (!text2.getText().equals("")) {
@@ -77,6 +100,14 @@ public class MyControl  implements	 Initializable {
 //			text1.appendText("\t\t\t\t\t "+ dateTimeString + "\n" + text2.getText() + "\n"+"\n");
 			text2.setText(null);
 		}
+	}
+	public void changename() throws IOException {
+		name=textname.getText();
+		DataInputStream in=new DataInputStream(socket.getInputStream());
+		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
+		out.writeInt(2);
+		out.writeUTF(account);
+		out.writeUTF(name);
 	}
 	private void settext(String string1) {
 		Text text1=new Text(string1);
@@ -118,7 +149,8 @@ public class MyControl  implements	 Initializable {
 		FileChooser fileChooser = new FileChooser();
 		File file=fileChooser.showOpenDialog(stage);
 		Filesend send=new Filesend();
-		send.setting( file,socket1);
+		send.setting(file,socket1);
+		System.out.println(file.toString());
 		Thread thread3=new Thread(send);
 		thread3.start();
 	}
@@ -132,5 +164,11 @@ public class MyControl  implements	 Initializable {
 		Stage estage=new Stage();
 		mEmoji.start(estage);
 	}
-	
+	public void imgreplace() {
+		FileChooser fileChooser = new FileChooser();
+		File file=fileChooser.showOpenDialog(stage);
+		System.out.println(file.toString());
+		Image image=new Image(file.toString());
+		img.setImage(image);
+	}
 }
