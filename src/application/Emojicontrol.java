@@ -18,9 +18,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class Emojicontrol {
-	static FlowPane pane;
+	private static FlowPane pane;
 	@FXML
 	private ImageView im1,im2,im3;
+	public static void setPane(FlowPane pane) {
+		Emojicontrol.pane = pane;
+	}
 	public void send(MouseEvent event) {
 		Date now = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
@@ -28,21 +31,22 @@ public class Emojicontrol {
 		if (event.getSource().toString().equals("ImageView[id=666, styleClass=image-view]")) {			
 			settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
 			sendimg(pane, "666");
-			Message.sendmessage(data.you, 33454, "666");
+			Save.savechat("\t\t\t\t\t"+dateTimeString+"\nme 666.jpg\n");
+			Message.sendmessage(Data.getYou(), 33454, "666");
 			settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
 			System.out.println(666);
 		}
 		if (event.getSource().toString().equals("ImageView[id=iu, styleClass=image-view]")) {
 			settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
 			sendimg(pane, "iu");
-			Message.sendmessage(data.you, 33454, "iu");
+			Message.sendmessage(Data.getYou(), 33454, "iu");
 			settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
 			System.out.println("iu");
 		}
 		if (event.getSource().toString().equals("ImageView[id=6666, styleClass=image-view]")) {
-			settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
+			settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");			
 			sendimg(pane, "6666");
-			Message.sendmessage(data.you, 33454, "6666");
+			Message.sendmessage(Data.getYou(), 33454, "6666");
 			settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
 			System.out.println(6666);
 		}
@@ -51,13 +55,7 @@ public class Emojicontrol {
 		Image image =new Image("resource/"+pic+".jpg");
 		ImageView imageView=new ImageView(image);
 		imageView.resize(20, 20);
-		Platform.runLater(new Runnable() {
-		    @Override
-		    public void run() {
-		        //更新JavaFX的主线程的代码放在此处
-		    	pane.getChildren().add(imageView);
-		    }
-		});
+		pane.getChildren().add(imageView);
 	}
 	private void settext(String string1) {
 		Text text1=new Text(string1);
@@ -66,13 +64,7 @@ public class Emojicontrol {
 		if(pane==null) {
 			System.out.println("No");
 		}
-		Platform.runLater(new Runnable() {
-		    @Override
-		    public void run() {
-		        //更新JavaFX的主线程的代码放在此处
-		    	pane.getChildren().add(text1);
-		    }
-		});
+		pane.getChildren().add(text1);
 		System.out.println(1212);
 	}
 }

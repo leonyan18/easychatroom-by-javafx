@@ -13,7 +13,7 @@ public class Recordmain extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/chatrecord.fxml"));
 			Scene scene = new Scene(root);
-			MyControllog.stage=primaryStage;
+			MyControllog.setStage(primaryStage);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

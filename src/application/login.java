@@ -15,7 +15,7 @@ public class login extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/main.fxml"));
 			Scene scene = new Scene(root);
-			MyControllog.stage=primaryStage;
+			MyControllog.setStage(primaryStage);
 			primaryStage.setScene(scene);
 			primaryStage.getIcons().add(new Image("resource/gray1.jpg"));  
 			primaryStage.show();

@@ -3,7 +3,8 @@ package application;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
-
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -15,6 +16,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.sun.media.jfxmedia.events.NewFrameEvent;
 
@@ -36,14 +40,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 //656
 public class MyControl  implements	 Initializable {
-	static Stage stage;
+	private static Stage stage;
 	@FXML
 	private Button myButton ,button1,min,drag,test;
 	@FXML
@@ -57,14 +64,31 @@ public class MyControl  implements	 Initializable {
 	private double xOffset = 0;
     private double yOffset = 0;
     private Socket socket1;
-	static String name="";
-	static String account="";
+    private static String name="";
+    private static String account="";
 	private Socket socket;
+	private static String headimg;
+	public static void setStage(Stage stage) {
+		MyControl.stage = stage;
+	}
+	public static void setName(String name) {
+		MyControl.name = name;
+	}
+	public static void setAccount(String account) {
+		MyControl.account = account;
+	}
+	public static String getaccount() {
+		return account;
+	}
+	public static void setHeadimg(String headimg) {
+		MyControl.headimg = headimg;
+	}
 	public void initialize(URL location, ResourceBundle resources) {
 		
 	       // TODO (don't really need to do anything here).
 		System.out.println(121);
-		Emojicontrol.pane=pane;
+		Headcontrol.setHead(img);
+		Emojicontrol.setPane(pane);
 		Messagelistenr mesl=new Messagelistenr();
 		mesl.setpane(pane);
 		Thread thread1=new Thread(mesl);	
@@ -73,12 +97,17 @@ public class MyControl  implements	 Initializable {
 		emojilistener.setpane(pane);
 		Thread thread3=new Thread(emojilistener);
 		thread3.start();
+		Imagelistenr imagelistenr=new Imagelistenr();
+		imagelistenr.setpane(pane);
+		Thread thread4=new Thread(imagelistenr);
+		thread4.start();
 		textname.setText(name);
 		socket=new Socket();
+		img.setImage(new Image("resource/"+headimg+".jpg"));
 		if(!socket.isConnected()) {
 			InetAddress address;
 			try {
-				address = InetAddress.getByName("192.168.0.140");
+				address = InetAddress.getByName(Data.getServer());
 				InetSocketAddress socketAddress=new InetSocketAddress(address, 5555);
 				socket.connect(socketAddress);
 			} catch (IOException e) {
@@ -91,9 +120,9 @@ public class MyControl  implements	 Initializable {
 		Date now = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
 		String dateTimeString = df.format(now);	
-		Message.sendmessage(data.you, 656, "from "+name+":"+text2.getText().trim()+"\n");
+		Message.sendmessage(Data.getYou(), 656, "from "+name+":"+text2.getText().trim()+"\n");
 		System.out.println(name);
-		Save.savechat("\t\t\t\t\t"+ dateTimeString + "\r\n" + text2.getText()  + "\r\n");
+		Save.savechat("\t\t\t\t\t"+ dateTimeString + "\r\n" + text2.getText()  + "\r\n"); 
 		// Show in VIEW
 		if (!text2.getText().equals("")) {
 			settext("\t\t\t\t\t"+ dateTimeString + "\n" + text2.getText()  + "\n");
@@ -103,7 +132,6 @@ public class MyControl  implements	 Initializable {
 	}
 	public void changename() throws IOException {
 		name=textname.getText();
-		DataInputStream in=new DataInputStream(socket.getInputStream());
 		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
 		out.writeInt(2);
 		out.writeUTF(account);
@@ -149,8 +177,12 @@ public class MyControl  implements	 Initializable {
 		FileChooser fileChooser = new FileChooser();
 		File file=fileChooser.showOpenDialog(stage);
 		Filesend send=new Filesend();
-		send.setting(file,socket1);
-		System.out.println(file.toString());
+		send.setting(file);
+		Date now = new Date();
+		DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
+		String dateTimeString = df.format(now);
+		settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t\n");
+		settext("发送成功\n\t\t\t\t\t\t\t\t");
 		Thread thread3=new Thread(send);
 		thread3.start();
 	}
@@ -164,11 +196,35 @@ public class MyControl  implements	 Initializable {
 		Stage estage=new Stage();
 		mEmoji.start(estage);
 	}
-	public void imgreplace() {
+	public void picsend() throws FileNotFoundException, InterruptedException {
 		FileChooser fileChooser = new FileChooser();
+		 fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Image Files", "*.png", "*.jpg"));
 		File file=fileChooser.showOpenDialog(stage);
-		System.out.println(file.toString());
-		Image image=new Image(file.toString());
-		img.setImage(image);
+		Date now = new Date();
+		DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
+		String dateTimeString = df.format(now);
+		Text text1=new Text("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
+		text1.setFont(Font.font ("Verdana", 20));
+		pane.getChildren().add(text1);
+		FileInputStream fis = new FileInputStream(file);  
+		Image image=new Image(fis);
+		ImageView imageView=new ImageView(image);
+		imageView.resize(20, 20);
+		imageView.setImage(image);
+		pane.getChildren().add(imageView);		
+		Imagesend imagesend=new Imagesend();
+		imagesend.setting(file);
+		Save.savechat("\t\t\t\t\t"+dateTimeString+"\n me :"+file.getName()+"\r\n");
+		Thread thread3=new Thread(imagesend);
+		thread3.start();
+	}
+	public void imgreplace() throws Exception  {
+		Headimg headimg=new Headimg();
+		Stage stage=new Stage();
+		headimg.start(stage);
+	}
+	public static String getName() {
+		// TODO 自动生成的方法存根
+		return name;
 	}
 }

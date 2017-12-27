@@ -34,11 +34,11 @@ public class Main extends Application {
 	private double yOffset = 0;
     public void start(Stage primaryStage) {
         try {
+        	MyControl.setStage(primaryStage);
             Parent root = FXMLLoader.load(getClass().getResource("/application/MyScene.fxml"));
             primaryStage.setTitle("My Application1");
             primaryStage.setScene(new Scene(root));
             primaryStage.initStyle(StageStyle.TRANSPARENT);
-            MyControl.stage=primaryStage;
             primaryStage.getIcons().add(new Image("resource/gray1.jpg"));  
             root.setOnMousePressed((MouseEvent event) -> {
 			    event.consume();

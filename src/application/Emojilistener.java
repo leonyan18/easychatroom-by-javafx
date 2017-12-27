@@ -17,6 +17,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -52,7 +55,14 @@ public class Emojilistener implements Runnable{
 						DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
 						String dateTimeString = df.format(now);
 						settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
-						Save.savechat("\t\t\t\t\t"+dateTimeString+"\r\n"+message+".jpg"+ "\r\n");
+						Save.savechat("\t\t\t\t\t"+dateTimeString+"\r\nyou "+message+".jpg"+ "\r\n");
+						String url = getClass().getResource("/resource/music.aac").toString();
+						Media media = new Media(url);
+						MediaPlayer player = new MediaPlayer(media);
+						player.setAutoPlay(true);         //设置自动播放
+						player.setCycleCount(1);          //设置循环播放次数
+						//音频控制(通常写在控件动作中)
+						player.play();
 						setimg(imgloc);
 						System.out.println(i);
 						settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
@@ -77,6 +87,7 @@ public class Emojilistener implements Runnable{
 		Text text1=new Text(string1);
 		text1.setFont(Font.font ("Verdana", 20));
 		System.out.println(2121);
+		text1.setFill(Color.RED);
 		if(pane==null) {
 			System.out.println("No");
 		}

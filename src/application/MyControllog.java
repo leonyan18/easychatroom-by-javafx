@@ -33,9 +33,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
-public class MyControllog implements Initializable{
-	private Socket socket=null;
-	static  Stage stage;
+public class MyControllog {
+	private static Socket socket=null;
+	private static  Stage stage;
 	@FXML
 	private TextField user;
 	@FXML
@@ -48,15 +48,23 @@ public class MyControllog implements Initializable{
 	final double y1=172.0;
 	final double x2=156.0;
 	final double y2=238.0;
+	public static void setSocket(Socket socket) {
+		MyControllog.socket = socket;
+	}
+	public static void setStage(Stage stage) {
+		MyControllog.stage = stage;
+	}
 	public void tomain() throws IOException {
+		link();
 		DataInputStream in=new DataInputStream(socket.getInputStream());
 		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
 		out.writeInt(1);
 		out.writeUTF(user.getText());
 		out.writeUTF(pass.getText());
 		if(in.readInt()==1) {
-			MyControl.name=in.readUTF();
-			MyControl.account=user.getText();
+			MyControl.setName(in.readUTF());
+			MyControl.setAccount(user.getText());
+			MyControl.setHeadimg(in.readUTF());
 			stage.close();
 			stage=new Stage();
 			Main main=new Main();
@@ -98,6 +106,7 @@ public class MyControllog implements Initializable{
 		config1.start(stage);
 	}
 	public void regist() throws IOException {
+		link();
 		DataInputStream in=new DataInputStream(socket.getInputStream());
 		DataOutputStream out=new DataOutputStream(socket.getOutputStream());
 		out.writeInt(0);
@@ -143,16 +152,16 @@ public class MyControllog implements Initializable{
 			wropa.setOpacity(0);
 			reacc.setOpacity(1.0);
 		}
+		out.close();
+		out.close();
 	}
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO 自动生成的方法存根
+	public void link() {
 		socket=new Socket();
 		if(!socket.isConnected()) {
 			InetAddress address;
 			try {
-				address = InetAddress.getByName("192.168.0.140");
+				address = InetAddress.getByName(Data.getServer());
 				InetSocketAddress socketAddress=new InetSocketAddress(address, 5555);
 				socket.connect(socketAddress);
 			} catch (IOException e) {

@@ -39,6 +39,7 @@
             <Image url="@../resource/iu.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="354.0" layoutY="464.0" mnemonicParsing="false" onAction="#picsend" prefHeight="23.0" prefWidth="79.0" text="发送图片" />
    </children>
    <stylesheets>
       <URL value="@mainapp.css" />

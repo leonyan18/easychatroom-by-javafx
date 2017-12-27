@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 public class ConfigControl {
 	static Stage sta;
 	@FXML
-	private TextField tex1;
+	private TextField tex1,tex2;
 	public void saveconfig() {
-		data.you=tex1.getText();
+		Data.setYou(tex1.getText());
+		Data.setServer(tex2.getText());
 		sta.close();
-		System.out.println(data.you);
 	}
 }
