@@ -36,11 +36,11 @@ public class Imagelistenr implements Runnable{
         FileOutputStream fout = null;
         try {
             din = new DataInputStream(socket.getInputStream());
-            File file1=new File("D:\\test1");
+            File file1=new File("D:\\test2");
             if(!file1.exists()) {
             	file1.mkdirs();
             }
-            File file2=new File("D:\\test1\\"+din.readUTF());
+            File file2=new File("D:\\test2\\"+din.readUTF());
             fout = new FileOutputStream(file2);
             inputByte = new byte[1024];
             System.out.println("开始接收数据...");

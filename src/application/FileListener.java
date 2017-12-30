@@ -19,11 +19,11 @@ public class FileListener implements Runnable {
         FileOutputStream fout = null;
         try {
             din = new DataInputStream(socket.getInputStream());
-            File file1=new File("D:\\test1");
+            File file1=new File("D:\\test2");
             if(!file1.exists()) {
             	file1.mkdirs();
             }
-            fout = new FileOutputStream(new File("D:\\test1\\"+din.readUTF()));
+            fout = new FileOutputStream(new File("D:\\test2\\"+din.readUTF()));
             inputByte = new byte[1024];
             System.out.println("开始接收数据...");
             while (true) {
