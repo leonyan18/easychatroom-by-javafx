@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="758.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyControl">
+<AnchorPane fx:id="backpane" prefHeight="758.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyControl">
    <children>
       <Button fx:id="myButton" layoutX="606.0" layoutY="721.0" mnemonicParsing="false" onAction="#showDateTime" prefHeight="23.0" prefWidth="120.0" text="发送" />
       <TextArea fx:id="text2" layoutX="15.0" layoutY="488.0" opacity="0.5" prefHeight="233.0" prefWidth="710.0" styleClass="text2" />

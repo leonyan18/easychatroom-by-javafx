@@ -1,6 +1,7 @@
 package application;
 
 import java.io.DataInputStream;
+
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,9 +23,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.sun.media.jfxmedia.events.NewFrameEvent;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -46,6 +51,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.util.Duration;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 //656
@@ -57,6 +63,8 @@ public class MyControl  implements	 Initializable {
 	private TextArea text1, text2;
 	@FXML
 	private FlowPane pane;
+	@FXML
+	private AnchorPane backpane;
 	@FXML
 	private TextField textname;
 	@FXML
@@ -153,8 +161,22 @@ public class MyControl  implements	 Initializable {
 		});
 		System.out.println(1212);
 	}
-	public void close() {
-		Event.fireEvent(stage, new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST ));
+	public void close() throws InterruptedException {
+		Timeline timeline=new Timeline();
+		EventHandler onFinished = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent t) {
+        		Event.fireEvent(stage, new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST ));
+            }
+        };
+		timeline.getKeyFrames().addAll(
+				new KeyFrame(Duration.ZERO,
+	                    new KeyValue(stage.opacityProperty(), 1.0)   
+	                ),
+				new KeyFrame(new Duration(500),onFinished,
+	                    new KeyValue(stage.opacityProperty(), 0.0)   
+	                )
+				);
+		timeline.play();
 	}
 	public void minwind() {
 		stage.setIconified(true);
