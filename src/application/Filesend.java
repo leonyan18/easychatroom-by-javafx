@@ -31,7 +31,7 @@ public class Filesend implements Runnable{
 		int length = 0;
 		try {			
 			try {
-	            Message.sendmessage("127.0.0.1",858,"对方已向你发送了文件 请在本地查收");
+	            Message.sendmessage("127.0.0.1",858,"对方已向你发送了文件 请在本地D:\\test2查收");
 	            
 	    		socket=new Socket();
 	            try {

@@ -52,6 +52,7 @@ public class Emojilistener implements Runnable{
 						DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
 						String dateTimeString = df.format(now);
 						settext("\t\t\t\t\t"+dateTimeString+"\t\t\t\t\t");
+						Save.savechat("\t\t\t\t\t"+dateTimeString+"\r\n"+message+".jpg"+ "\r\n");
 						setimg(imgloc);
 						System.out.println(i);
 						settext("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");

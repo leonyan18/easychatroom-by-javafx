@@ -41,6 +41,7 @@ public class Messagelistenr implements Runnable{
 						String message=new String(packet.getData(), 0, packet.getLength());
 						System.out.println(message);
 						settext("\t\t"+dateTimeString+"\n"+message);
+						Save.savechat("\t\t"+dateTimeString+"\r\n"+message+ "\r\n");
 					} catch (Exception e) {
 						// TODO: handle exception
 						System.out.println(e);

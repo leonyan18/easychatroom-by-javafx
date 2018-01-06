@@ -54,6 +54,7 @@ public class MyControl  implements	 Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 	       // TODO (don't really need to do anything here).
+		System.out.println(121);
 		Emojicontrol.pane=pane;
 		Messagelistenr mesl=new Messagelistenr();
 		mesl.setpane(pane);
@@ -67,8 +68,9 @@ public class MyControl  implements	 Initializable {
 	public void showDateTime(ActionEvent event) {
 		Date now = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
-		String dateTimeString = df.format(now);		
+		String dateTimeString = df.format(now);	
 		Message.sendmessage("127.0.0.1", 858, name+" "+text2.getText().trim()+"\n");
+		Save.savechat("\t\t\t\t\t"+ dateTimeString + "\r\n" + text2.getText()  + "\r\n");
 		// Show in VIEW
 		if (!text2.getText().equals("")) {
 			settext("\t\t\t\t\t"+ dateTimeString + "\n" + text2.getText()  + "\n");
