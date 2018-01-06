@@ -16,7 +16,6 @@
       <Button fx:id="button1" layoutX="847.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="23.0" prefWidth="24.0" text="X" textFill="#0dc4f2" />     
       <Button fx:id="min" layoutX="823.0" layoutY="3.0" mnemonicParsing="false" onAction="#minwind" prefWidth="24.0" text="-" />
       <Button layoutX="18.0" layoutY="464.0" mnemonicParsing="false" onAction="#filesend" text="发送文件" />
-      <Button fx:id="listen" layoutX="107.0" layoutY="464.0" mnemonicParsing="false" onAction="#listening" text="接收文件" />
       <Button layoutX="208.0" layoutY="464.0" mnemonicParsing="false" onAction="#sendemo" prefHeight="23.0" prefWidth="79.0" text="emo" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="202.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" />
       <ScrollPane layoutX="18.0" opacity="1.0" layoutY="15.0" prefHeight="440.0" prefWidth="699.0">

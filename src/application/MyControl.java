@@ -41,7 +41,7 @@ import javafx.stage.WindowEvent;
 public class MyControl  implements	 Initializable {
 	static Stage stage;
 	@FXML
-	private Button myButton ,button1,min,drag,listen,test;
+	private Button myButton ,button1,min,drag,test;
 	@FXML
 	private TextArea text1, text2;
 	@FXML
