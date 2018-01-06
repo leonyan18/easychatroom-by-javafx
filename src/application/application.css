@@ -1,0 +1,14 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.scene{  
+    -fx-font: 14pt "CambriaBold";  
+    -fx-color: #e79423;  
+    -fx-background: #67644e;  
+}  
+   
+.button{  
+    -fx-text-fill: #006464;  
+    -fx-background-color: #e79423;  
+    -fx-border-radius: 20;  
+    -fx-background-radius: 20;  
+    -fx-padding: 5;  
+}  

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Emojicontrol">
+   <content>
+      <FlowPane prefHeight="403.0" prefWidth="595.0">
+         <children>
+            <ImageView id="666" fx:id="im1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#send" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@666.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="6666" fx:id="im2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#send" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@6666.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="iu" fx:id="im3" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#send" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iu.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </FlowPane>
+   </content>
+</ScrollPane>
