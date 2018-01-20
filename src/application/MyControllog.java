@@ -66,9 +66,9 @@ public class MyControllog {
 			MyControl.setAccount(user.getText());
 			MyControl.setHeadimg(in.readUTF());
 			stage.close();
-			stage=new Stage();
+			Stage stage1=new Stage();
 			Main main=new Main();
-			main.start(stage);
+			main.start(stage1);
 		}
 		else {
 			pass.getStyleClass().clear();

@@ -35,7 +35,7 @@ public class Headcontrol implements Initializable{
 		if(!socket.isConnected()) {
 			InetAddress address;
 			try {
-				address = InetAddress.getByName("192.168.0.140");
+				address = InetAddress.getByName(Data.getServer());
 				InetSocketAddress socketAddress=new InetSocketAddress(address, 5555);
 				socket.connect(socketAddress);
 			} catch (IOException e) {
