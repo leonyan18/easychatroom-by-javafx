@@ -1,0 +1,16 @@
+数据库连接 
+	url="jdbc:mysql://localhost:3306/yan";  
+	user="root";  
+	password="1183503933yan";
+	表名="user";
+	类型有
+		account 字符串
+		password 字符串
+		name 字符串
+		head(头像) 字符串		
+名称	功能	备注
+Dao	与数据库的连接和交互	
+MYServer	等待连接启动线程		Listenr
+Server	服务器界面用来关闭	界面类
+Serverthread	与客户端交互	
+	

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="183.0" prefWidth="359.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="severd.Servercontrol">
+   <children>
+      <Text fx:id="text" fill="#18eb49" layoutX="73.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="178.240234375">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="68.0" layoutY="119.0" mnemonicParsing="false" onAction="#start" prefHeight="32.0" prefWidth="67.0" text="开始" />
+      <Button layoutX="195.0" layoutY="119.0" mnemonicParsing="false" onAction="#config" prefHeight="32.0" prefWidth="67.0" text="设置" />
+   </children>
+</AnchorPane>
